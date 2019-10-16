@@ -1,0 +1,89 @@
+
+{% extends "base.html" %}
+{% block title %}
+TechQuiz- Register
+{% endblock %}
+{% block content %}
+{% load staticfiles %}
+<link href="{% static 'css/registerlogin.css' %}" rel="stylesheet" type="text/css">
+<style>
+#errorhighlight
+{
+        font-size: 10px;
+        color: red;
+        text-align: right;     
+}
+</style>
+
+<div class="container-fluid">
+        <div class="row">
+                <div class="col-xs-12 col-sm-10 col-md-6 col-lg-3 
+                            col-sm-offset-1 col-md-offset-3 col-lg-offset-4">
+                <form action="/signup/" method="POST" id = "formcolor" class="row">
+                        <div id="myHeading" class="col-12">SignUp<hr></div>
+                        <label class="col-12">Enter Full Name:</label><br>
+                        <input class="col-12" type="text" name="fname" id="name" value= "{% if fname not in 'invalidalreadypresentRequiredrestricted' %}{{fname}}{% endif %}"></input><br>
+                        {% if fname == 'Required' %}
+                        <label class="col-12" id="errorhighlight">Your full name Required*</label><br>                        
+                        {% elif fname == 'restricted'%}
+                        <label class="col-12" id="errorhighlight">sensitive word</label><br>
+                        {% endif %}
+                        
+                        <label class="col-sm-3 col-12">Gender: </label>
+                        <label class="col-sm-4 col-6"><input type="radio" name="gender" id="gender" value="Male" checked="True"/> Male</label>
+                        <label class="col-sm-5 col-6"><input type="radio" name="gender" id="gender" value="Female"/> Female</label>
+                        {% if gender == 'Required' %}
+                        <label class="col-12" id="errorhighlight">Gender Required</label><br>
+                        {% endif %}
+
+
+                        <label class="col-12">Mobile No:</label><br>
+                        <input class="col-12" type="text" name="mobileno" id="mobileno" value= "{% if mobileno not in 'invalidalreadypresentRequiredrestricted' %}{{mobileno}}{% endif %}"/><br>
+                        {% if mobileno == 'Required' %}
+                        <label class="col-12" id="errorhighlight">mobileno Required*</label><br>
+                        {% elif mobileno == 'restricted' or mobileno == 'invalid'%}
+                        <label class="col-12" id="errorhighlight">Invalid No.</label><br>
+                        {% elif mobileno == 'alreadypresent' %}
+                        <label class="col-12" id="errorhighlight">Already present </label><br>
+                        {% endif %}
+
+
+
+                        <label class="col-12">Enter Email:</label><br>
+                        <input class="col-12" type="email" name="email" id="email" value= "{% if email not in 'invalidalreadypresentRequiredrestricted' %}{{email}}{% endif %}"/><br>
+                        {% if email == 'Required' %}
+                        <label class="col-12" id="errorhighlight">Email Required*</label><br>
+                        {% elif email == 'restricted'%}
+                        <label class="col-12" id="errorhighlight">Invalid</label><br>
+                        {% elif email == 'alreadypresent' %}
+                        <label class="col-12" id="errorhighlight">Already present </label><br>
+                        {% endif %}
+
+
+                        <label class="col-12">Enter Password:</label><br>
+                        <input class="col-12" type="password" name="password" id="password" value= "{% if password not in 'invalidalreadypresentRequiredrestricted' %}{{password}}{% endif %}"/><br>
+                        {% if password == 'Required' %}
+                        <label class="col-12" id="errorhighlight">password Required*</label><br>
+                        {% elif password == 'restricted'%}
+                        <label class="col-12" id="errorhighlight">Invalid</label><br>
+                        {% endif %}
+
+
+                        <label class="col-12">ReType Password:</label><br>
+                        <input class="col-12" type="password" name="repassword" id="repassword" value= "{% if repassword not in 'invalidalreadypresentRequiredrestricted' %}{{repassword}}{% endif %}"/><br>
+                        {% if repassword == 'Required' %}
+                        <label class="col-12" id="errorhighlight">repassword Required*</label><br>
+                        {% elif repassword == 'restricted'%}
+                        <label class="col-12" id="errorhighlight">Invalid</label><br>
+                        {% elif repassword == 'invalid'%}
+                        <label class="col-12" id="errorhighlight">Password not matched</label><br>
+                        {% endif %}
+                        <br>
+                        <input class="col-4 offset-1 mybtn" type="submit" id = "submitBtn" value="Submit"/>
+                        <input class="col-4 offset-1 mybtn" type="reset" value="Reset"/>
+                        {% csrf_token %}
+                </form>    
+                </div>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% load staticfiles %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="{% static 'jquery.min.js' %}" rel="script" type="text/script">
+      <link href="{% static 'popper.min.js' %}" rel="script" type="text/script">
+      <link href="{% static 'bootstrap.min.js' %}" rel="script" type="text/script">
+      <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+      
+      <title>{% block title%}TechQuiz- Home {% endblock %}</title>
+      
+  </head>
+  <body>
+{% include 'header.html' %}
+  
+{% block content %}Loading......{% endblock %}
+ 
+<br><br><br>
+{% include 'footer.html' %}
+  </body>
+</html>

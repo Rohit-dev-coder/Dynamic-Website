@@ -1,0 +1,56 @@
+
+hr
+{
+        height: 2px;
+        background-color: rgb(8, 182, 31);
+}
+#formcolor
+{
+        border-radius: 20px;
+        background-color: rgba(166, 253, 180, 0.541);
+        color: rgb(34, 85, 39);
+        font-family:cursive;
+        padding: 10px;
+        box-shadow: 5px 5px 10px 10px rgba(94, 100, 97, 0.164);
+}
+#myHeading
+{
+        text-align: center;
+        font-size: 30px;
+        font-weight: bolder;
+}
+label{ 
+        font-size: 17px;
+        font-family:'Courier New', Courier, monospace;
+}
+input
+{
+        font-family:'Courier New', Courier, monospace;
+        font-size: 17px;
+        height: 35px;
+        border-radius: 10px;
+        padding: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+}
+input[type="radio"] {
+  width: 15px;
+  height: 15px;
+}
+.mybtn
+{
+        text-align: center;
+        background-color: rgba(6, 173, 6, 0.61);
+        color: white;
+        font-size: 20px;
+        font-weight:800;
+        height: 40px;
+        border-radius: 0%;
+        padding: 5px;
+        -webkit-border-radius: 0%;
+        -moz-border-radius: 0%;
+        -ms-border-radius: 0%;
+        -o-border-radius: 0%;
+}
